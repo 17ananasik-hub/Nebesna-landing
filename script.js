@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `🩰 <b>Направление:</b> ${data.direction}`;
 
         // ИСПРАВЛЕНО: Корректный шаблон ссылки для Telegram API
-        const telegramUrl = `https://telegram.org{TELEGRAM_CONFIG.token}/sendMessage`;
+        const telegramUrl = `https://telegram.org${TELEGRAM_CONFIG.token}/sendMessage`;
 
 
         try {
