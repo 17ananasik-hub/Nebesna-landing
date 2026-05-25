@@ -36,7 +36,6 @@
     --glow-2: var(--color-purple);
     --glow-3: var(--color-blue);
     --glow-opacity: 0.22;
-
 }
 
 /* -------------------------------------------------------------
@@ -304,7 +303,25 @@ body::after {
 ------------------------------------------------------------- */
 .header {
     padding: 24px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--border-color);
+    /* Используем переменную темы для границы */
+
+    /* Делаем шапку липкой */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* Поднимает шапку над всем остальным контентом сайта */
+
+    /* Добавляем полупрозрачный фон текущей темы и красивое размытие */
+    background-color: rgba(var(--color-primary-rgb), 0.02);
+    /* Легкий оттенок основной темы */
+    backdrop-filter: blur(12px);
+    /* Эффект матового стекла, как на iOS */
+    -webkit-backdrop-filter: blur(12px);
+    /* Поддержка размытия для браузеров Safari на iPhone */
+
+    /* Плавный переход при смене темы */
+    transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .header-container {
@@ -316,7 +333,7 @@ body::after {
 .logo {
     font-size: 22px;
     font-weight: 700;
-    background: linear-gradient(45deg, #FFFFFF, var(--color-pink));
+    background: linear-gradient(45deg, #00B4D8, var(--color-pink));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
@@ -404,11 +421,33 @@ body::after {
     justify-content: flex-end;
 }
 
-/* Контейнер для фото (обновление) */
+/* -------------------------------------------------------------
+   ОБНОВЛЕННЫЙ БЛОК ИЗОБРАЖЕНИЯ (HERO VISUAL)
+------------------------------------------------------------- */
+
+/* Контейнер для фотографии с неоновым свечением */
 .hero-image-placeholder {
+    width: 100%;
+    max-width: 440px;
+    height: 520px;
+    background: linear-gradient(145deg, #13171F 0%, #090B0D 100%);
+    border: 1px solid rgba(255, 51, 133, 0.15);
+    /* Розовая тонкая рамка */
+    border-radius: 32px;
+
+    /* Позиционирование элементов внутри */
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Поднимает тег кверху */
+    align-items: flex-start;
+    padding: 30px;
+
+    /* Эффекты и защита краев */
     overflow: hidden;
-    /* Скрывает края картинки, если они вылезают за скругления */
+    /* Чтобы картинка не вылезала за скругления углов */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Стили для самого изображения внутри блока */
@@ -419,40 +458,22 @@ body::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Картинка заполнит блок, сохраняя свои пропорции */
+    /* Сохраняет пропорции без искажений */
     object-position: center;
-    /* Центрирует изображение */
+    /* Центрирует картинку */
     z-index: 1;
-    /* Опускает фото под тег и другие элементы */
+    /* Уходит на самый нижний слой под тег */
 }
 
-/* Поднимаем текстовый тег над картинкой, чтобы его не перекрывало */
+/* Эстетичный неоновый тег поверх изображения */
 .visual-tag {
     position: relative;
     z-index: 2;
-    margin-bottom: auto;
-    /* Смещает тег в верхнюю часть карточки */
-}
-
-/* Заглушка под фото с неоновым свечением */
-.hero-image-placeholder {
-    width: 100%;
-    max-width: 440px;
-    height: 520px;
-    background: linear-gradient(145deg, #13171F 0%, #090B0D 100%);
-    border: 1px solid rgba(255, 51, 133, 0.15);
-    /* Розовая тонкая рамка */
-    border-radius: 32px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-}
-
-.visual-tag {
+    /* Поднимает тег НАД картинкой, чтобы его было видно */
     background: rgba(255, 51, 133, 0.1);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Поддержка для Safari (iPhone) */
     border: 1px solid rgba(255, 51, 133, 0.25);
     padding: 10px 20px;
     border-radius: 100px;
