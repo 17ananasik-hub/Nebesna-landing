@@ -564,6 +564,138 @@ body::after {
 }
 
 /* -------------------------------------------------------------
+   ОБНОВЛЕННАЯ КНОПКА-ГАЛЕРЕЯ И ЛАЙТБОКС
+------------------------------------------------------------- */
+
+/* Превращаем тег в интерактивную кнопку */
+.gallery-btn {
+    cursor: pointer;
+    border: 1px solid rgba(255, 51, 133, 0.25);
+    font-family: inherit;
+    transition: all 0.25s ease-in-out;
+}
+
+.gallery-btn:hover {
+    background: var(--color-pink);
+    color: #FFFFFF;
+    border-color: var(--color-pink);
+    box-shadow: 0 0 20px rgba(255, 51, 133, 0.6);
+    transform: scale(1.05);
+}
+
+/* Оверлей полноэкранной галереи */
+.gallery-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 4, 5, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    /* Выше обычного модального окна */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Контейнер для активного изображения */
+.gallery-content {
+    max-width: 85vw;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 16px;
+    object-fit: contain;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Кнопки навигации стрелок */
+.gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 24px;
+    padding: 16px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gallery-nav-btn:hover {
+    color: var(--color-pink);
+    scale: 1.2;
+}
+
+.gallery-nav-btn.prev {
+    left: 40px;
+}
+
+.gallery-nav-btn.next {
+    right: 40px;
+}
+
+/* Кнопка закрытия галереи */
+.gallery-close-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: #8A949F;
+    font-size: 42px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.gallery-close-btn:hover {
+    color: var(--color-pink);
+}
+
+/* Адаптив под смартфоны */
+@media (max-width: 768px) {
+    .gallery-nav-btn {
+        top: auto;
+        bottom: 40px;
+        transform: none;
+        padding: 12px 18px;
+    }
+
+    .gallery-nav-btn.prev {
+        left: 30%;
+        transform: translateX(-50%);
+    }
+
+    .gallery-nav-btn.next {
+        right: 30%;
+        transform: translateX(50%);
+    }
+
+    .gallery-close-btn {
+        top: 20px;
+        right: 20px;
+        font-size: 36px;
+    }
+}
+
+/* -------------------------------------------------------------
    8. ПОДВАЛ (FOOTER)
 ------------------------------------------------------------- */
 .footer {
@@ -721,6 +853,7 @@ body::after {
     font-size: 13px;
     font-weight: 500;
     color: #8A949F;
+    /* Цвет лейблов по умолчанию */
     margin-bottom: 8px;
 }
 
@@ -735,7 +868,7 @@ body::after {
     font-family: inherit;
     font-size: 15px;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 
 .form-input:focus,
@@ -744,13 +877,37 @@ body::after {
     box-shadow: 0 0 10px rgba(255, 51, 133, 0.15);
 }
 
+/* Настройка выпадающего списка и добавление адаптивной стрелочки */
 .form-select {
     appearance: none;
-    background-image: url("data:image/svg+xml;utf8,");
+    -webkit-appearance: none;
+    /* Фикс для отображения в Safari на iPhone */
+    -moz-appearance: none;
+
+    /* Красивая минималистичная стрелочка-галочка */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238A949F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
     background-repeat: no-repeat;
     background-position: right 16px center;
     background-size: 16px;
     padding-right: 40px;
+}
+
+/* ИСПРАВЛЕНО: Когда ничего не выбрано, цвет текста становится строго #8A949F (как у лейблов) */
+.form-select:invalid {
+    color: #8A949F !important;
+}
+
+/* Стилизация внутренних опций при раскрытии списка */
+.form-select option {
+    background-color: var(--bg-modal);
+    /* Адаптивный фон под текущую тему */
+    color: var(--text-main);
+    /* Белый текст в темной теме, темный — в светлой */
+}
+
+/* Скрываем техническую строчку внутри открытого списка */
+.form-select option[disabled] {
+    display: none;
 }
 
 /* -------------------------------------------------------------

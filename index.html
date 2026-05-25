@@ -85,10 +85,24 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-image-placeholder">
-                    <span class="visual-tag">Aero Design</span>
+                    <button class="visual-tag gallery-btn js-open-gallery" type="button">Aero Design</button>
                     <img src="img/aerial.jpg" alt="aerial">
                 </div>
             </div>
+
+            <!-- Модальное окно галереи (Лайтбокс) — ИСПРАВЛЕННАЯ СТРУКТУРА -->
+            <div class="gallery-overlay id-gallery-overlay">
+                <button class="gallery-close-btn id-gallery-close" aria-label="Закрыть галерею">&times;</button>
+                <button class="gallery-nav-btn prev id-gallery-prev" aria-label="Предыдущее фото">❮</button>
+
+                <!-- ОСТАВЛЯЕМ СТРОГО ОДИН БЛОК ДЛЯ АКТИВНОЙ КАРТИНКИ -->
+                <div class="gallery-content">
+                    <img src="img/photo-1.jpg" id="gallery-active-img" alt="Просмотр фотографии">
+                </div>
+
+                <button class="gallery-nav-btn next id-gallery-next" aria-label="Следующее фото">❯</button>
+            </div>
+
         </div>
     </section>
 
@@ -111,6 +125,40 @@
             <span class="section-tag">Програми</span>
             <h2 class="section-title margin-bottom">Напрями підготовки</h2>
             <div class="directions-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2v20M17 5H7M19 12H5M17 19H7" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Повітрянні полотна</h3>
+                    <p class="card-text">Розвиток пластики, витривалості та сили. Вчимо базовим намотуванням, витонченим
+                        позиціям
+                        і захоплюючим дух урвищем.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Повітрянне кільце</h3>
+                    <p class="card-text">Ідеально для формування гарної постави. Робота над балансом, гнучкістю спини
+                        та динамічними зв'язками на снаряді.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 14h16M4 10h16M12 4v16" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Стретчінг и підкачка</h3>
+                    <p class="card-text">Фундамент для безпечних тренувань у повітрі. М'яке розтягування зв'язок,
+                        зміцнення кора та м'язового корсету.</p>
+                </div>
                 <div class="card">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -176,7 +224,8 @@
                         <h4 class="footer-col-title">Соцмережі</h4>
                         <ul class="footer-list">
                             <li><a href="#" class="footer-link">Telegram</a></li>
-                            <li><a href="#" class="footer-link">Instagram</a></li>
+                            <li><a href="https://www.instagram.com/nebesna_studio?igsh=MWJxbjlwd3c4Nm53cg%3D%3D&utm_source=qr"
+                                    class="footer-link">Instagram</a></li>
                         </ul>
                     </div>
                 </div>
@@ -206,12 +255,29 @@
                 </div>
                 <div class="form-field">
                     <label for="workout-type" class="form-label">Напрям</label>
-                    <select id="workout-type" class="form-select">
-                        <option value="canvas">Повітрянне полотно</option>
-                        <option value="hoop">Повітрянне кільце</option>
-                        <option value="stretching">Стретчінг и підкачка</option>
+                    <select id="workout-type" class="form-select" required>
+                        <option value="" selected disabled>Обери свій шлях</option>
+                        <option value="individual">Індивідуальне</option>
+                        <option value="canvas">Повітряне полотно</option>
+                        <option value="hoop">Повітряне кільце</option>
+                        <option value="stretching">Стретчінг та підкачка</option>
                     </select>
                 </div>
+
+                <div class="form-field">
+                    <label for="workout-age" class="form-label">Вікова категорія</label>
+                    <!-- ИСПРАВЛЕНО: Новый уникальный id="workout-age" -->
+                    <select id="workout-age" class="form-select" required>
+                        <option value="" selected disabled>Уточніть вік атлета</option>
+                        <!-- ИСПРАВЛЕНО: Уникальные логичные значения value -->
+                        <option value="age-4-6">4-6 років</option>
+                        <option value="age-7-10">7-10 років</option>
+                        <option value="age-11-14">11-14 років</option>
+                        <option value="age-15-17">15-17 років</option>
+                        <option value="age-18">18+ років</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-full-width">Відправити заявку</button>
             </form>
         </div>
