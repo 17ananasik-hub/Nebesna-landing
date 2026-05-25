@@ -153,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ИСПРАВЛЕНО: Корректный шаблон ссылки для Telegram API
         const telegramUrl = `https://telegram.org{TELEGRAM_CONFIG.token}/sendMessage`;
 
+
         try {
             const response = await fetch(telegramUrl, {
                 method: 'POST',
