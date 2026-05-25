@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroGrace — Студия воздушной гимнастики</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+
+    <div class="glow-bg-1"></div>
+    <div class="glow-bg-2"></div>
+
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">AeroGrace</a>
+
+            <!-- Обертка навигации для мобильных -->
+            <div class="nav-wrapper id-nav-wrapper">
+                <nav class="nav">
+                    <a href="#about" class="nav-link">О нас</a>
+                    <a href="#directions" class="nav-link">Направления</a>
+                    <a href="#footer" class="nav-link">Контакты</a>
+                </nav>
+            </div>
+
+            <div class="header-actions">
+                <!-- Переключатель темы -->
+                <button class="theme-toggle-btn id-theme-toggle" aria-label="Переключить тему">
+                    <svg class="theme-icon icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="theme-icon icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+
+                <button class="btn btn-primary js-open-modal header-cta-btn">Запись</button>
+
+                <!-- Кнопка Бургер-меню -->
+                <button class="burger-menu id-burger-menu" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Обретайте грацию и силу в воздухе</h1>
+                <p class="hero-description">Современное пространство воздушной гимнастики. Профессиональное
+                    оборудование, чуткие тренеры и безопасный полет к вашей новой физической форме.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary js-open-modal">Начать тренировки</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">12+</span>
+                        <span class="stat-label">Топ тренеров</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">25к+</span>
+                        <span class="stat-label">Часов полета</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Залов</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-placeholder">
+                    <span class="visual-tag">Aero Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about">
+        <div class="container">
+            <span class="section-tag">О нас</span>
+            <div class="about-grid">
+                <h2 class="section-title">Искусство владения телом на грани возможного</h2>
+                <p class="about-text">AeroGrace — это не просто спортивная секция, это комьюнити людей, влюбленных в
+                    высоту. Мы разрушаем стереотипы о том, что воздушная атлетика доступна только гимнастам с детства.
+                    Наши программы бережно адаптированы под любой уровень подготовки, возраст и комплекцию.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Направления -->
+    <section id="directions" class="directions">
+        <div class="container">
+            <span class="section-tag">Программы</span>
+            <h2 class="section-title margin-bottom">Направления подготовки</h2>
+            <div class="directions-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2v20M17 5H7M19 12H5M17 19H7" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Воздушные полотна</h3>
+                    <p class="card-text">Развитие пластики, выносливости и силы. Учим базовым намоткам, изящным позициям
+                        и захватывающим дух обрывам.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Воздушное кольцо</h3>
+                    <p class="card-text">Идеально для формирования красивой осанки. Работа над балансом, гибкостью спины
+                        и динамическими связками на снаряде.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 14h16M4 10h16M12 4v16" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Стретчинг и подкачка</h3>
+                    <p class="card-text">Фундамент для безопасных тренировок в воздухе. Мягкое растяжение связок,
+                        укрепление кора и мышечного корсета.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">AeroGrace</a>
+                    <p class="footer-description">Стиль, эстетика и безопасность вашего полета.</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Навигация</h4>
+                        <ul class="footer-list">
+                            <li><a href="#about" class="footer-link">О нас</a></li>
+                            <li><a href="#directions" class="footer-link">Направления</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Контакты</h4>
+                        <ul class="footer-list">
+                            <li><span class="footer-info">+7 (999) 444-22-11</span></li>
+                            <li><span class="footer-info">ул. Высотная, д. 42</span></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Соцсети</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">Telegram</a></li>
+                            <li><a href="#" class="footer-link">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 AeroGrace Studio. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay id-modal-overlay">
+        <div class="modal-window">
+            <button class="modal-close-btn id-modal-close" aria-label="Закрыть модальное окно">&times;</button>
+            <h2 class="modal-title">Запись на занятие</h2>
+            <p class="modal-subtitle">Оставьте свои контактные данные, и администратор студии подберет удобное время для
+                первой тренировки.</p>
+
+            <form class="modal-form id-booking-form">
+                <div class="form-field">
+                    <label for="user-name" class="form-label">Ваше имя</label>
+                    <input type="text" id="user-name" class="form-input" placeholder="Александра" required>
+                </div>
+                <div class="form-field">
+                    <label for="user-phone" class="form-label">Номер телефона</label>
+                    <input type="tel" id="user-phone" class="form-input" placeholder="+7 (999) 000-00-00" required>
+                </div>
+                <div class="form-field">
+                    <label for="workout-type" class="form-label">Направление</label>
+                    <select id="workout-type" class="form-select">
+                        <option value="canvas">Воздушные полотна</option>
+                        <option value="hoop">Воздушное кольцо</option>
+                        <option value="stretching">Стретчинг и подкачка</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full-width">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
