@@ -404,6 +404,36 @@ body::after {
     justify-content: flex-end;
 }
 
+/* Контейнер для фото (обновление) */
+.hero-image-placeholder {
+    position: relative;
+    overflow: hidden;
+    /* Скрывает края картинки, если они вылезают за скругления */
+}
+
+/* Стили для самого изображения внутри блока */
+.hero-image-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Картинка заполнит блок, сохраняя свои пропорции */
+    object-position: center;
+    /* Центрирует изображение */
+    z-index: 1;
+    /* Опускает фото под тег и другие элементы */
+}
+
+/* Поднимаем текстовый тег над картинкой, чтобы его не перекрывало */
+.visual-tag {
+    position: relative;
+    z-index: 2;
+    margin-bottom: auto;
+    /* Смещает тег в верхнюю часть карточки */
+}
+
 /* Заглушка под фото с неоновым свечением */
 .hero-image-placeholder {
     width: 100%;
